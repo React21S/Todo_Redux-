@@ -1,0 +1,165 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+:root {
+  --bg-color:linear-gradient(to bottom left, #dbc4c4, #e7e73f, green);
+  /* --bg-color: linear-gradient(to right bottom, #532623, #975420, #bb9900, #a8eb12); */
+ 
+
+   --light-text: white;
+   --light-text-2: #e04242;
+   --light-gray:lightgray;
+
+   /* white */
+   --white:#ffffff;
+   --white-1:#f5f5f5;
+   --white-2:#ebebeb;
+   --white-3:#e0e0e0;
+   --white-4:#d6d6d6;
+   --white-5:#cccccc;
+
+   --black:black;
+ 
+   --bg-color-1:#0b520b;
+   --bg-color-2:#333333e6;
+   --bg-color-3:#becf21;
+   --bg-color-4:#0b213b80;
+   --bg-color-5:#0b520b;
+   --bg-color-6:#8b9818;
+ 
+    --color-1:#7290be;
+    --color-2:#cecece;
+    --color-3:#f5f5f5;
+    --color-4:#333;
+ 
+   --font-1: 'Caveat', cursive;
+   --font-2:'Roboto', sans-serif;
+   --font-3:'Special Elite', cursive;
+ 
+   --ancient-1:#e9d8a6;
+   --ancient-2:#ee9b00;
+   --ancient-3:#94d2bd;
+   --ancient-4:#0a9396;
+   --ancient-4:#005f73;
+
+   /* bluish */
+   --neutral-0:#48cae4;
+   --neutral-1:#00b4d8;
+   --neutral-2:#0096c7;
+   --neutral-3:#0077b6;
+   --neutral-4:#023e8a;
+   --neutral-5:#03045e;
+
+    /* burlywood */
+    --br-1:#ede0d4;
+    --br-2:#e6ccb2;
+    --br-3:#ddb892;
+    --br-4:#b08968;
+    --br-5:#7f5539;
+    --br-6:#9c6644;
+
+    /* red */
+    --rd-1:#e85d08;
+    --rd-2:#dc2f02;
+    --rd-3:#d00000;
+    --rd-4:#9d0208;
+    --rd-5:#6a040f;
+    --rd-6:#370617;
+
+    /* green */
+    --gr-1:#004b23;
+    --gr-2:#006400;
+    --gr-3:#007200;
+    --gr-4:#008000;
+    --gr-5:#38b000;
+    --gr-6:#70e000;
+
+    /* melon */
+    --ml-1:#e8a598;
+    --ml-2:#ffb5a7;
+    --ml-3:#fec5bb;
+    --ml-4:#fcd5ce;
+    --ml-5:#fae1dd;
+    --ml-6:#f8edeb;
+
+    /* yellow */
+    --yellow-1:#ffea00;
+    --yellow-2:#ffdd00;
+    --yellow-3:#ffd000;
+    --yellow-4:#ffc300;
+    --yellow-5:#ffb700;
+    --yellow-6:#ffaa00;
+
+    /* puple */
+    --pp-1:#501cca;
+    --pp-2:#6735db;
+    --pp-3:#8162ca;
+    --pp-4:#370f93;
+
+}
+body {
+  background-color: var(--pp-1);
+  font-family: "Roboto", sans-serif;
+  color: white;
+}
+
+
+header{
+  padding: 15px;
+  text-align: center;
+  background-color: var(--bg-color-4);
+  color: var(--white-1);
+  width: 100%;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-family: var(--font-3);
+}
+
+
+/* footer */
+.footerWrapper{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+footer p{ 
+  font-family: var(--font-2);
+  font-size: 1.5rem;
+  padding: 30px;
+}
+
+footer .icons i {
+  margin: 20px ;
+  font-size: 40px;
+  color: var(--pp-4);
+}
+
+footer .icons i:hover{
+  color: var(--pp-3);
+  transition: 1s;
+}
+
+
+select, input{
+  width: 10rem;
+  cursor: pointer;
+  padding: 0.4rem;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  margin: 10px;
+}
+input{
+  width: 30rem;
+  cursor: default;
+  padding: 0.8rem;
+  font-size: 20px;
+}
+a{
+  text-decoration: none;
+}
