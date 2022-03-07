@@ -1,12 +1,16 @@
 import * as actionTypes from "./action";
+import noteService from "../../services/notes";
 
-const {notes} = require("./notes")
-const initialState = {
-    notes: notes,
-};
+// const {notes} = require("./notes")
+// const initialState = {
+//     notes: notes,
+// };
 
-const reducer =(state = initialState, action)=>{
+const reducer =(state = [], action)=>{
     switch(action.type){
+        case actionTypes.INIT_NOTES:
+            return action.payload;
+
         case actionTypes.ADD_TODO:
             return {
                 notes:[
@@ -40,4 +44,14 @@ const reducer =(state = initialState, action)=>{
     }
     
 }
+export const initNotes = ()=>{
+    return async (dispatch)=>{
+        const notes = await noteService.getAll();
+        dispatch({
+            type:actionTypes.INIT_NOTES,
+            payload:notes,
+        });
+    };
+};
+
 export default reducer;
