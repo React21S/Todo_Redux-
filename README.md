@@ -42,6 +42,25 @@ npm install react-redux
 ```shell
 npm install --save @redux-devtools/extension
 ```
+
+```shell
+npm install redux-thunk
+```
+
+```shell
+npm install json-server --save-dev 
+```
+### Add this to `package.json`
+- under script in `package.json`
+`"server":"json-server -p3001 --watch db.json"`
+
+To start server from terminal 
+```shell
+npm run server
+```
+For viewing data 
+`http://localhost:3001/db`
+
 ---
 ## Installation 
 ### steps to follow in the installation
