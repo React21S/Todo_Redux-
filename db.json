@@ -1,15 +1,16 @@
-   {"notes": [
+{
+  "notes": [
     {
       "id": 1,
-     " title": "Create clean app",
-     " task": "npx create-react-app",
-     " done": false
+      "title": "Create clean app",
+      "task": "npx create-react-app",
+      "done": false
     },
     {
       "id": 2,
       "title": "Clean app",
       "task": "Delete and clean unnecessary stuff",
-     " done": false
+      " done": false
     },
     {
       "id": 3,
@@ -22,7 +23,18 @@
       "title": "Great",
       "task": "it good to be good",
       "done": false
+    },
+    {
+      "title": "Todo App",
+      "task": "From Margit",
+      "done": false,
+      "id": 5
+    },
+    {
+      "title": "The task ",
+      "task": "Database with Ilka",
+      "done": false,
+      "id": 6
     }
   ]
 }
-  

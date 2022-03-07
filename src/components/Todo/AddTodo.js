@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
+import { createNote } from "../store/reducer";
 
 import classes from "./AddTodo.module.css";
 import Button from "../UI/Button";
 
-import * as actionTypes from '../store/action'
+// import * as actionTypes from '../store/action'
 
 const AddTodo = () => {
   const [todo, setTodo] = useState({ title: "", task: "" });
@@ -13,6 +14,7 @@ const AddTodo = () => {
 
   const changeHandler = (e) => {
     const { name, value } = e.target;
+
     setTodo((prevState) => ({
       ...prevState,
       [name]: value,
@@ -22,10 +24,11 @@ const AddTodo = () => {
   const addHandler = (e) => {
     e.preventDefault();
     // console.log(todo)
-    dispatch({
-      type: actionTypes.ADD_TODO,
-      payload: todo
-    });
+    // dispatch({
+    //   type: actionTypes.ADD_TODO,
+    //   payload: todo
+    // });
+    dispatch(createNote(todo));
   };
 
   return (

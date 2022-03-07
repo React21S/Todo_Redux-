@@ -11,7 +11,7 @@ import classes from "./TodoList.module.css";
 
 
 const TodoList = () => {
-  const notes = useSelector(state=>state.notes)
+  const notes = useSelector((state)=>state)
   const [filteredValue, setFilteredValue] = useState();
   const [filterList, setFilteredList] = useState(notes);
   const [searchValue, setSearchValue]= useState('');
@@ -54,7 +54,7 @@ const TodoList = () => {
     if(searchValue === ''){
       setFilteredList(notes);
     }else{
-      setFilteredList(notes.filter((notes)=>notes.title.toLowerCase().includes(searchValue)))
+      setFilteredList(notes.filter((note)=>note.title.toLowerCase().includes(searchValue)))
     }
   },[searchValue, notes] )
 
@@ -74,7 +74,8 @@ const TodoList = () => {
       <option value="true">Done</option>
       <option value="false">NotDone</option>
     </select>
-    <input type="text" onChange={searchHandler} name="title" placeholder="Type to search for the task" />
+    <input type="search" id="search" onChange={searchHandler} name="title" placeholder="Type to search for the task" />
+    {/* {!notes && <p>Please add some notes first</p>} */}
       {filterList.map((note) => {
         return (
           <div
