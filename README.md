@@ -48,6 +48,10 @@ npm install redux-thunk
 ```
 
 ```shell
+npm install axios
+```
+
+```shell
 npm install json-server --save-dev 
 ```
 ### Add this to `package.json`
