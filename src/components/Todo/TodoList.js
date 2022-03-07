@@ -14,7 +14,8 @@ const TodoList = () => {
   const notes = useSelector(state=>state.notes)
   const [filteredValue, setFilteredValue] = useState();
   const [filterList, setFilteredList] = useState(notes);
-  const [search, setSearch]= useState();
+  const [searchValue, setSearchValue]= useState('');
+  // const [searchList, setSearchList]= useState();
   const dispatch = useDispatch();
 
   const removeHandler = (id) => {
@@ -32,6 +33,7 @@ const TodoList = () => {
     });
   };
 
+  // for filtering 
   useEffect(() => {
     if (filteredValue === "true") {
       setFilteredList(
@@ -47,10 +49,22 @@ const TodoList = () => {
   }, [filteredValue, notes]);
 
 
+  // for search the value 
+  useEffect(()=>{
+    if(searchValue === ''){
+      setFilteredList(notes);
+    }else{
+      setFilteredList(notes.filter((notes)=>notes.title.toLowerCase().includes(searchValue)))
+    }
+  },[searchValue, notes] )
+
   const filterHandler = (e) => {
     setFilteredValue(e.target.value);
   };
 
+  const searchHandler = (e) => {
+    setSearchValue(e.target.value);
+  };
 
   return (
     <div className={classes.todos}>
@@ -60,7 +74,7 @@ const TodoList = () => {
       <option value="true">Done</option>
       <option value="false">NotDone</option>
     </select>
-    <input type="text" onChange={filterHandler} name="title" placeholder="Type to search for the task" />
+    <input type="text" onChange={searchHandler} name="title" placeholder="Type to search for the task" />
       {filterList.map((note) => {
         return (
           <div
