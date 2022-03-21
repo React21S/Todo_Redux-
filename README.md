@@ -58,7 +58,7 @@ npm install json-server --save-dev
 - under script in `package.json`
 `"server":"json-server -p3001 --watch db.json"`
 
-To start server from terminal 
+To `start server `from terminal 
 ```shell
 npm run server
 ```

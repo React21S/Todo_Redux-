@@ -8,7 +8,7 @@ import Button from "../UI/Button";
 // import * as actionTypes from '../store/action'
 
 const AddTodo = () => {
-  const [todo, setTodo] = useState({ title: "", task: "" });
+  const [todo, setTodo] = useState({ title: "", task: "", description:""});
 
   const dispatch = useDispatch();
 
@@ -23,11 +23,6 @@ const AddTodo = () => {
 
   const addHandler = (e) => {
     e.preventDefault();
-    // console.log(todo)
-    // dispatch({
-    //   type: actionTypes.ADD_TODO,
-    //   payload: todo
-    // });
     dispatch(createNote(todo));
   };
 
@@ -40,6 +35,10 @@ const AddTodo = () => {
       <div>
         <label htmlFor="task">Task</label>
         <input id="task" type="text" onChange={changeHandler} name="task" />
+      </div>
+      <div>
+        <label htmlFor="description">Description</label>
+        <textarea id="description" type="text" onChange={changeHandler} name="description" />
       </div>
       <Button type="submit">Add Task</Button>
     </form>

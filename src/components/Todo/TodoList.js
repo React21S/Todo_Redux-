@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from "react";
 import { useSelector,useDispatch } from "react-redux";
 
-import * as actionTypes from '../store/action'
+import { removeItem, toggleItem } from '../store/reducer';
 
 import classes from "./TodoList.module.css";
 
@@ -18,20 +18,20 @@ const TodoList = () => {
   // const [searchList, setSearchList]= useState();
   const dispatch = useDispatch();
 
-  const removeHandler = (id) => {
-    // console.log(id, "was clicked");
-    dispatch({
-      type: actionTypes.REMOVE_TODO,
-      payload: id
-    });
-  };
-  const doneHandler = (id) => {
-    // console.log(id, "was clicked");
-    dispatch({
-      type: actionTypes.DONE_TODO,
-      payload: id
-    });
-  };
+  // const removeHandler = (id) => {
+  //   // console.log(id, "was clicked");
+  //   dispatch({
+  //     type: actionTypes.REMOVE_TODO,
+  //     payload: id
+  //   });
+  // };
+  // const doneHandler = (id) => {
+  //   // console.log(id, "was clicked");
+  //   dispatch({
+  //     type: actionTypes.DONE_TODO,
+  //     payload: id
+  //   });
+  // };
 
   // for filtering 
   useEffect(() => {
@@ -48,15 +48,34 @@ const TodoList = () => {
     }
   }, [filteredValue, notes]);
 
+    // for search the value 
+    useEffect(()=>{
+      if(searchValue === ''){
+        setFilteredList(notes);
+      }else{
+        setFilteredList(notes.filter((note)=>
+        note.title.toLowerCase()
+        .includes(searchValue)))
+      }
+    },[searchValue, notes] )
 
-  // for search the value 
-  useEffect(()=>{
-    if(searchValue === ''){
-      setFilteredList(notes);
-    }else{
-      setFilteredList(notes.filter((note)=>note.title.toLowerCase().includes(searchValue)))
-    }
-  },[searchValue, notes] )
+  // // second version of filtering
+  // useEffect(() => {
+  //   filteredValue === 'true'
+  //     ? setFilteredList(notes.filter((item) => item.done === !!filteredValue))
+  //     : filteredValue === 'false'
+  //     ? setFilteredList(notes.filter((item) => item.done !== !!filteredValue))
+  //     : setFilteredList(notes);
+  // }, [filteredValue, notes]);
+
+  // // second version of searching
+  // useEffect(() => {
+  //   searchValue === ''
+  //     ? setFilteredList(notes)
+  //     : setFilteredList(
+  //         notes.filter((note) => note.title.includes(searchValue))
+  //       );
+  // }, [searchValue, notes]);
 
   const filterHandler = (e) => {
     setFilteredValue(e.target.value);
@@ -75,22 +94,22 @@ const TodoList = () => {
       <option value="false">NotDone</option>
     </select>
     <input type="search" id="search" onChange={searchHandler} name="title" placeholder="Type to search for the task" />
-    {/* {!notes && <p>Please add some notes first</p>} */}
-      {filterList.map((note) => {
+      {filterList?.map((note) => {
         return (
           <div
-              onClick={() => doneHandler(note.id)}
+          onClick={() => dispatch(toggleItem(note))}
               className={`${classes.todo} ${
                 note.done ? classes.done : classes.notDone
               }`}
               key={note.id}
             >
               <h2>
-                {note.id}. {note.title}
+                {note.id}. Title: {note.title}
               </h2>
-              <p>{note.task}</p>
+              <h3>Task:{note.task}</h3>
+              <p>Description: {note.description}</p>
               
-              <div key={note.id} className={`material-icons ${classes.delete}`} onClick={()=>removeHandler(note.id)}> delete
+              <div key={note.id} className={`material-icons ${classes.delete}`} onClick={()=>dispatch(removeItem(note.id))}> delete
             
             </div>
           </div>

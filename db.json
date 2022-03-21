@@ -1,18 +1,6 @@
 {
   "notes": [
     {
-      "id": 1,
-      "title": "Create clean app",
-      "task": "npx create-react-app",
-      "done": false
-    },
-    {
-      "id": 2,
-      "title": "Clean app",
-      "task": "Delete and clean unnecessary stuff",
-      " done": false
-    },
-    {
       "id": 3,
       "title": "Create store / context",
       "task": "Create new file and use React.createContext()",
@@ -35,6 +23,19 @@
       "task": "Database with Ilka",
       "done": false,
       "id": 6
+    },
+    {
+      "title": "ok",
+      "task": "tresting",
+      "done": false,
+      "id": 7
+    },
+    {
+      "title": "ddd",
+      "task": "ddd",
+      "description": "hidfovgoihop",
+      "done": false,
+      "id": 8
     }
   ]
 }
